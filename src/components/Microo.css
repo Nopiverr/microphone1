@@ -1,0 +1,232 @@
+/* File: src/Components/microo.css */
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Baskerville&family=Merriweather:wght@700&family=Work+Sans&display=swap");
+
+* {
+  margin: 18;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+
+html {
+  color: rgb(96 101 123);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(56, 50, 50);
+}
+
+/* .container {
+  padding: 30px;
+  margin-top: 412px;
+} */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .load-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .text {
+    font-size: 2.5em;
+    margin-right: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .load {
+    display: flex;
+    border-radius: 50%;
+    flex-direction: row;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .load.active {
+    opacity: 1;
+  }
+
+/* .load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+} */
+
+.progress {
+    width: 2em;
+    height: 2em;
+    margin: 0.4em;
+    transform: scale(0);
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    animation: loading_492 2s ease infinite;
+  }
+  
+  @keyframes loading_492 {
+    50% {
+      transform: scale(1);
+    }
+  }
+  
+  .progress:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  
+  .progress:nth-child(3) {
+    animation-delay: 0.7s;
+  }
+
+.btt {
+  width: 135px;
+  height: 62px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: #100720;
+  transition: 0.1s;
+}
+
+.btt::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2%);
+  filter: blur(15px);
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.btt:active {
+  transform: scale(0.9) rotate(3deg);
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2%);
+  transition: 0.5s;
+}
+
+/* Language */
+
+.switch {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+    margin: 0 5px;
+  }
+  
+.switch > span {
+position: absolute;
+top: 14px;
+pointer-events: none;
+font-family: 'Helvetica', Arial, sans-serif;
+font-weight: bold;
+font-size: 12px;
+text-transform: uppercase;
+width: 50%;
+text-align: center;
+transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.switch > span.on {
+left: 0;
+padding-left: 2px;
+color: #66ff66; /* Green color for "BN" when active */
+}
+
+.switch > span.off {
+right: 0;
+padding-right: 4px;
+color: #ff6666; /* Red color for "EN" when active */
+}
+
+/* Hide the checkbox input */
+.check-toggle {
+position: absolute;
+margin-left: -9999px;
+visibility: hidden;
+}
+
+/* Label for the toggle switch */
+.check-toggle + label {
+display: block;
+position: relative;
+cursor: pointer;
+outline: none;
+user-select: none;
+width: 97px;
+height: 35px;
+background-color: #333; /* Dark background */
+border-radius: 60px;
+border: 2px solid #444; /* Slight border for distinction */
+transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Outer rim of the toggle switch */
+.check-toggle + label:before {
+content: "";
+display: block;
+position: absolute;
+top: 2px;
+left: 2px;
+right: 2px;
+bottom: 2px;
+background-color: #555; /* Darker shade for the outer rim */
+border-radius: 60px;
+}
+
+/* Inner circle (the actual toggle knob) */
+.check-toggle + label:after {
+content: "";
+display: block;
+position: absolute;
+top: 4px;
+left: 4px;
+bottom: 4px;
+width: 48px;
+background-color: #222; /* Dark knob */
+border-radius: 52px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+transition: margin 0.2s ease;
+}
+
+/* Adjust the position of the knob and change colors when checked */
+input.check-toggle-round-flat:checked + label:after {
+margin-left: 44px;
+}
+
+input.check-toggle-round-flat:checked ~ .on {
+color: #fff; /* White color for "BN" when inactive */
+}
+
+input.check-toggle-round-flat:checked ~ .off {
+color: #66ff66; /* Green color for "EN" when active */
+}
+
+/* Colors when not checked */
+input.check-toggle-round-flat:not(:checked) ~ .on {
+color: #66ff66; /* Green color for "BN" when active */
+}
+
+input.check-toggle-round-flat:not(:checked) ~ .off {
+color: #fff; /* White color for "EN" when inactive */
+}
